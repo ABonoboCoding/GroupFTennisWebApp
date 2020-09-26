@@ -14,6 +14,7 @@ namespace GroupFTennisWebApp.Data
     {
         public GroupFTennisWebAppContext(DbContextOptions<GroupFTennisWebAppContext> options)
             : base(options)
+
         {
         }
 

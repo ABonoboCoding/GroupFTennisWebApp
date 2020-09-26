@@ -17,10 +17,6 @@ namespace GroupFTennisWebApp.Areas.Identity
         public void Configure(IWebHostBuilder builder)
         {
             builder.ConfigureServices((context, services) => {
-                services.AddDbContext<GroupFTennisWebAppContext>(options =>
-                    options.UseSqlServer(
-                        context.Configuration.GetConnectionString("GroupFTennisWebAppContextConnection")));
-
                 services.AddDefaultIdentity<GroupFTennisWebAppUser>(options => options.SignIn.RequireConfirmedAccount = true)
                     .AddEntityFrameworkStores<GroupFTennisWebAppContext>();
             });
