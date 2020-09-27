@@ -33,9 +33,9 @@ namespace GroupFTennisWebApp
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDbContext<GroupFTennisWebAppContext>(options =>
-                options.UseSqlServer(
-                     Configuration.GetConnectionString("GroupFTennisWebAppContextConnection")));
+            //services.AddDbContext<GroupFTennisWebAppContext>(options =>
+            //    options.UseSqlServer(
+            //         Configuration.GetConnectionString("GroupFTennisWebAppContextConnection")));
 
             services.AddAuthorization(options =>
             {

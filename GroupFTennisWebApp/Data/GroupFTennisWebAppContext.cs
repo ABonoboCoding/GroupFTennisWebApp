@@ -14,7 +14,6 @@ namespace GroupFTennisWebApp.Data
     {
         public GroupFTennisWebAppContext(DbContextOptions<GroupFTennisWebAppContext> options)
             : base(options)
-
         {
         }
 
@@ -25,6 +24,12 @@ namespace GroupFTennisWebApp.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
         }
+
+        public DbSet<GroupFTennisWebApp.Models.Coach> Coach { get; set; }
+
+        public DbSet<GroupFTennisWebApp.Models.Schedule> Schedule { get; set; }
+
+        public DbSet<GroupFTennisWebApp.Models.ScheduleMembers> ScheduleMembers { get; set; }
     }
 }
 
