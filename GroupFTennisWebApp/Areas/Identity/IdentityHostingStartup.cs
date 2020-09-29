@@ -17,8 +17,8 @@ namespace GroupFTennisWebApp.Areas.Identity
         public void Configure(IWebHostBuilder builder)
         {
             builder.ConfigureServices((context, services) => {
-                services.AddDefaultIdentity<GroupFTennisWebAppUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                    .AddEntityFrameworkStores<GroupFTennisWebAppContext>();
+                //services.AddDefaultIdentity<GroupFTennisWebAppUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                //    .AddEntityFrameworkStores<GroupFTennisWebAppContext>();
             });
         }
     }

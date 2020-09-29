@@ -32,6 +32,8 @@ namespace GroupFTennisWebApp
             services.AddDbContext<GroupFTennisWebAppContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDefaultIdentity<GroupFTennisWebAppUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<GroupFTennisWebAppContext>();
 
             //services.AddDbContext<GroupFTennisWebAppContext>(options =>
             //    options.UseSqlServer(

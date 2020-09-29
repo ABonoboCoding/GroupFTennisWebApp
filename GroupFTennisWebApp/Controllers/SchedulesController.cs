@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-//using Microsoft.AspNetCore.Authorization;
-//using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using GroupFTennisWebApp.Areas.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -15,11 +16,15 @@ namespace GroupFTennisWebApp.Controllers
     public class SchedulesController : Controller
     {
         private readonly GroupFTennisWebAppContext _context;
+        private readonly UserManager<GroupFTennisWebAppUser> _userManager;
 
 
-        public SchedulesController(GroupFTennisWebAppContext context)
+
+        public SchedulesController(GroupFTennisWebAppContext context, UserManager<GroupFTennisWebAppUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
+
 
         }
 
