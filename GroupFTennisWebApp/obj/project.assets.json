@@ -8955,19 +8955,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\az\\.nuget\\packages\\": {}
+    "C:\\Users\\james\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\az\\Desktop\\Tennis\\GroupFTennisWebApp\\GroupFTennisWebApp.csproj",
+      "projectUniqueName": "D:\\Desktop\\HIT339\\GitHub Repository\\GroupFTennisWebApp\\GroupFTennisWebApp\\GroupFTennisWebApp.csproj",
       "projectName": "GroupFTennisWebApp",
-      "projectPath": "C:\\Users\\az\\Desktop\\Tennis\\GroupFTennisWebApp\\GroupFTennisWebApp.csproj",
-      "packagesPath": "C:\\Users\\az\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\az\\Desktop\\Tennis\\GroupFTennisWebApp\\obj\\",
+      "projectPath": "D:\\Desktop\\HIT339\\GitHub Repository\\GroupFTennisWebApp\\GroupFTennisWebApp\\GroupFTennisWebApp.csproj",
+      "packagesPath": "C:\\Users\\james\\.nuget\\packages\\",
+      "outputPath": "D:\\Desktop\\HIT339\\GitHub Repository\\GroupFTennisWebApp\\GroupFTennisWebApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\az\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\james\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

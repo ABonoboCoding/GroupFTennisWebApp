@@ -62,6 +62,12 @@ namespace GroupFTennisWebApp.Areas.Identity.Pages.Account
             public DateTime DOB { get; set; }
 
             [Required]
+            [Display(Name = "Role")]
+            [DataType(DataType.Text)]
+            public string Role { get; set; }
+
+
+            [Required]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
@@ -94,6 +100,7 @@ namespace GroupFTennisWebApp.Areas.Identity.Pages.Account
                     LastName = Input.LastName,
                     FirstName = Input.FirstName,
                     DOB = Input.DOB,
+                    Role = Input.Role,
                     UserName = Input.Email, 
                     Email = Input.Email };
                 var result = await _userManager.CreateAsync(user, Input.Password);

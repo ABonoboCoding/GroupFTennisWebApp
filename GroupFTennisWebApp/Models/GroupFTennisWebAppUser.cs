@@ -24,12 +24,6 @@ namespace GroupFTennisWebApp.Areas.Identity.Data
         public string Bio { get; set; }
 
         [PersonalData]
-        public bool IsCoach { get; set; }
-
-        [PersonalData]
-        public bool IsMember { get; set; }
-
-        [PersonalData]
-        public bool IsAdmin { get; set; }
+        public string Role { get; set; }
     }
 }

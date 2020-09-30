@@ -27,6 +27,10 @@
                 <input asp-for="Input.DOB" class="form-control" />
                 <span asp-validation-for="Input.DOB" class="text-danger"></span>
             </div>
+
+            <input type="radio" asp-for="Input.Role" value="Member" />Member<br />
+            <input type="radio" asp-for="Input.Role" value="Coach" />Coach<br />
+
             <div class="form-group">
                 <label asp-for="Input.Email"></label>
                 <input asp-for="Input.Email" class="form-control" />
