@@ -4,16 +4,14 @@ using GroupFTennisWebApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace GroupFTennisWebApp.Data.Migrations
+namespace GroupFTennisWebApp.Migrations
 {
     [DbContext(typeof(GroupFTennisWebAppContext))]
-    [Migration("20200930143230_UserRoleAdd")]
-    partial class UserRoleAdd
+    partial class GroupFTennisWebAppContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
