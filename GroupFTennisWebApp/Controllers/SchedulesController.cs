@@ -13,12 +13,11 @@ using GroupFTennisWebApp.Models;
 
 namespace GroupFTennisWebApp.Controllers
 {
+    //[Authorize(Roles = "Member, Coach, Admin")]
     public class SchedulesController : Controller
     {
         private readonly GroupFTennisWebAppContext _context;
         private readonly UserManager<GroupFTennisWebAppUser> _userManager;
-
-
 
         public SchedulesController(GroupFTennisWebAppContext context, UserManager<GroupFTennisWebAppUser> userManager)
         {
@@ -53,6 +52,7 @@ namespace GroupFTennisWebApp.Controllers
         }
 
         // GET: Schedules/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -75,6 +75,7 @@ namespace GroupFTennisWebApp.Controllers
         }
 
         // GET: Schedules/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -126,6 +127,7 @@ namespace GroupFTennisWebApp.Controllers
         }
 
         // GET: Schedules/Delete/5
+        [Authorize(Roles = "Admin")]    
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -153,6 +155,53 @@ namespace GroupFTennisWebApp.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+        public async Task<IActionResult> Enrol(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var schedule = await _context.Schedule.FirstOrDefaultAsync(m => m.Id == id);
+
+            if (schedule == null)
+            {
+                return NotFound();
+            }
+
+            return View(schedule);
+        }
+
+        [HttpPost, ActionName("Enrol")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EnrolConfirmed(int id, [Bind("ScheduleId")] ScheduleMembers member)
+        {
+            var newMember = await _context.Schedule.FindAsync(id);
+
+            if (newMember.When < DateTime.Now)
+            {
+                ViewBag.errorMessage = "Sorry, You can't sign up to the event that has already happened.";
+                return View("Views/Home/Error.cshtml", ViewBag.errorMessage);
+            }
+
+            if (newMember.When > DateTime.Now)
+            {
+                member.ScheduleId = newMember.Id;
+                member.MemberEmail = _userManager.GetUserName(User);
+
+                _context.Add(member);
+
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Index));
+
+            }
+
+            return View(newMember);
+
+        }
+
 
         private bool ScheduleExists(int id)
         {

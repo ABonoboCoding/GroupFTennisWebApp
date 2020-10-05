@@ -1,0 +1,42 @@
+﻿@model GroupFTennisWebApp.Models.Schedule
+
+@{
+    ViewData["Title"] = "My Enrolment";
+}
+
+    <div>
+        <h4>Schedule</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.When)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.When)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.CoachEmail)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CoachEmail)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Location)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Location)
+            </dd>
+        </dl>
+
+        <form asp-action="Enrol">
+            <input type="hidden" asp-for="Id" name="ScheduleId" />
+            <input type="submit" value="Enrol" class="btn btn-primary" /> |
+            <a asp-action="Index">Back to List</a>
+        </form>
+    </div>

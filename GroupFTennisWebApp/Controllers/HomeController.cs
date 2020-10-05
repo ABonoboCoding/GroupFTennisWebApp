@@ -20,6 +20,7 @@ namespace GroupFTennisWebApp.Controllers
 
         public IActionResult Index()
         {
+
             return View();
         }
 

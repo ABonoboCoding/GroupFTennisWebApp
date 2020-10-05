@@ -39,6 +39,7 @@ namespace GroupFTennisWebApp
             //    options.UseSqlServer(
             //         Configuration.GetConnectionString("GroupFTennisWebAppContextConnection")));
 
+
             services.AddAuthorization(options =>
             {
                 options.FallbackPolicy = new AuthorizationPolicyBuilder()

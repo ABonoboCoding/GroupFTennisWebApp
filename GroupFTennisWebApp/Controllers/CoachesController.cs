@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-//using Microsoft.AspNetCore.Authorization;
-//using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using GroupFTennisWebApp.Areas.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -15,11 +16,15 @@ namespace GroupFTennisWebApp.Controllers
     public class CoachesController : Controller
     {
         private readonly GroupFTennisWebAppContext _context;
+        private readonly UserManager<GroupFTennisWebAppUser> _userManager;
 
 
-        public CoachesController(GroupFTennisWebAppContext context)
+
+        public CoachesController(GroupFTennisWebAppContext context, UserManager<GroupFTennisWebAppUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
+
 
         }
 
@@ -28,6 +33,48 @@ namespace GroupFTennisWebApp.Controllers
         {
             return View(await _context.Coach.ToListAsync());
         }
+
+        [Authorize(Roles = "Coach")]
+        public ActionResult MyCoach()
+        {
+
+            var coach = _userManager.GetUserName(User);
+            var myCoach = _context.Coach.Where(m => m.Email == coach);
+
+            return View("Index", myCoach);
+
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult AllSchedule()
+        {
+            var schedules = _context.Schedule.ToList();
+
+            return View("MySchedule", schedules);
+
+        }
+
+        [Authorize(Roles = "Coach")]
+        public ActionResult MySchedule()
+        {
+            var coach = _userManager.GetUserName(User);
+            var coaches = _context.Schedule.Where(m => m.CoachEmail == coach);
+            return View("MySchedule", coaches);
+
+        }
+
+        public IActionResult Schedules(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var member = _context.ScheduleMembers.Where(m => m.ScheduleId == id);
+
+            return View("Schedule", member);
+        }
+
 
         // GET: Coaches/Details/5
         public async Task<IActionResult> Details(int? id)

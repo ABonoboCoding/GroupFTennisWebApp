@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-//using Microsoft.AspNetCore.Authorization;
-//using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using GroupFTennisWebApp.Areas.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -15,11 +16,14 @@ namespace GroupFTennisWebApp.Controllers
     public class ScheduleMembersController : Controller
     {
         private readonly GroupFTennisWebAppContext _context;
+        private readonly UserManager<GroupFTennisWebAppUser> _userManager;
 
 
-        public ScheduleMembersController(GroupFTennisWebAppContext context)
+
+        public ScheduleMembersController(GroupFTennisWebAppContext context, UserManager<GroupFTennisWebAppUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
 
         }
 
@@ -28,7 +32,7 @@ namespace GroupFTennisWebApp.Controllers
         {
             return View(await _context.ScheduleMembers.ToListAsync());
         }
-
+   
         // GET: ScheduleMembers/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -48,6 +52,7 @@ namespace GroupFTennisWebApp.Controllers
         }
 
         // GET: ScheduleMembers/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -70,6 +75,7 @@ namespace GroupFTennisWebApp.Controllers
         }
 
         // GET: ScheduleMembers/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -121,6 +127,8 @@ namespace GroupFTennisWebApp.Controllers
         }
 
         // GET: ScheduleMembers/Delete/5
+        [Authorize(Roles = "Admin")]
+
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -148,10 +156,12 @@ namespace GroupFTennisWebApp.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
+     
         private bool ScheduleMembersExists(int id)
         {
             return _context.ScheduleMembers.Any(e => e.Id == id);
         }
+
+
     }
 }

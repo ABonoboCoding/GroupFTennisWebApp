@@ -426,10 +426,7 @@ C:\Users\az\Desktop\Tennis\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\View
 C:\Users\az\Desktop\Tennis\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Coaches\Details.cshtml.g.cs
 C:\Users\az\Desktop\Tennis\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Coaches\Edit.cshtml.g.cs
 C:\Users\az\Desktop\Tennis\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Coaches\Index.cshtml.g.cs
-C:\Users\az\Desktop\Tennis\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Schedules\Create.cshtml.g.cs
-C:\Users\az\Desktop\Tennis\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Schedules\Delete.cshtml.g.cs
 C:\Users\az\Desktop\Tennis\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Schedules\Details.cshtml.g.cs
-C:\Users\az\Desktop\Tennis\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Schedules\Edit.cshtml.g.cs
 C:\Users\az\Desktop\Tennis\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Schedules\Index.cshtml.g.cs
 C:\Users\az\Desktop\Tennis\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\ScheduleMembers\Create.cshtml.g.cs
 C:\Users\az\Desktop\Tennis\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\ScheduleMembers\Delete.cshtml.g.cs
@@ -673,3 +670,17 @@ D:\Desktop\HIT339\GitHub Repository\GroupFTennisWebApp\GroupFTennisWebApp\obj\De
 D:\Desktop\HIT339\GitHub Repository\GroupFTennisWebApp\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\GroupFTennisWebApp.dll
 D:\Desktop\HIT339\GitHub Repository\GroupFTennisWebApp\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\GroupFTennisWebApp.pdb
 D:\Desktop\HIT339\GitHub Repository\GroupFTennisWebApp\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\GroupFTennisWebApp.genruntimeconfig.cache
+C:\Users\az\Desktop\Tennis\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Allmember.cshtml.g.cs
+C:\Users\az\Desktop\Tennis\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Delete.cshtml.g.cs
+C:\Users\az\Desktop\Tennis\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Details.cshtml.g.cs
+C:\Users\az\Desktop\Tennis\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Edit.cshtml.g.cs
+C:\Users\az\Desktop\Tennis\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Index.cshtml.g.cs
+C:\Users\az\Desktop\Tennis\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Schedule.cshtml.g.cs
+C:\Users\az\Desktop\Tennis\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Create.cshtml.g.cs
+C:\Users\az\Desktop\Tennis\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Schedules\Create.cshtml.g.cs
+C:\Users\az\Desktop\Tennis\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Schedules\Delete.cshtml.g.cs
+C:\Users\az\Desktop\Tennis\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Schedules\Edit.cshtml.g.cs
+C:\Users\az\Desktop\Tennis\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Schedules\Enrol.cshtml.g.cs
+C:\Users\az\Desktop\Tennis\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Error.cshtml.g.cs
+C:\Users\az\Desktop\Tennis\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Coaches\MySchedule.cshtml.g.cs
+C:\Users\az\Desktop\Tennis\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Coaches\Schedule.cshtml.g.cs
