@@ -19,7 +19,11 @@ namespace GroupFTennisWebApp.Areas.Identity
             builder.ConfigureServices((context, services) => {
                 //services.AddDefaultIdentity<GroupFTennisWebAppUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 //    .AddEntityFrameworkStores<GroupFTennisWebAppContext>();
+
             });
+
+
         }
+
     }
 }

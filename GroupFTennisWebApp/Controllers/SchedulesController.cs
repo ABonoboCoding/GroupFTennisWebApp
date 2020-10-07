@@ -17,12 +17,15 @@ namespace GroupFTennisWebApp.Controllers
     public class SchedulesController : Controller
     {
         private readonly GroupFTennisWebAppContext _context;
+        private readonly RoleManager<IdentityRole> roleManager;
         private readonly UserManager<GroupFTennisWebAppUser> _userManager;
 
-        public SchedulesController(GroupFTennisWebAppContext context, UserManager<GroupFTennisWebAppUser> userManager)
+
+        public SchedulesController(GroupFTennisWebAppContext context, UserManager<GroupFTennisWebAppUser> userManager, RoleManager <IdentityRole> roleManager)
         {
             _context = context;
             _userManager = userManager;
+            this.roleManager = roleManager;
 
 
         }
@@ -52,7 +55,9 @@ namespace GroupFTennisWebApp.Controllers
         }
 
         // GET: Schedules/Create
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
+
+        [Authorize(Roles = "Member")]
         public IActionResult Create()
         {
             return View();
@@ -63,8 +68,15 @@ namespace GroupFTennisWebApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+
+        [Authorize(Roles = "Admin, Member")]
+
+
         public async Task<IActionResult> Create([Bind("Id,When,Description,CoachEmail,Location")] Schedule schedule)
         {
+         
+
+
             if (ModelState.IsValid)
             {
                 _context.Add(schedule);
@@ -75,7 +87,7 @@ namespace GroupFTennisWebApp.Controllers
         }
 
         // GET: Schedules/Edit/5
-        [Authorize(Roles = "Admin")]
+      //  [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)

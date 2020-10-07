@@ -32,8 +32,10 @@ namespace GroupFTennisWebApp
             services.AddDbContext<GroupFTennisWebAppContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<GroupFTennisWebAppUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<GroupFTennisWebAppContext>();
+
+
+
+
 
             //services.AddDbContext<GroupFTennisWebAppContext>(options =>
             //    options.UseSqlServer(
@@ -49,10 +51,17 @@ namespace GroupFTennisWebApp
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddIdentity<GroupFTennisWebAppUser, IdentityRole>()
+                .AddDefaultUI()
+                .AddRoles<IdentityRole>()
+                .AddRoleManager<RoleManager<IdentityRole>>()
+                .AddDefaultTokenProviders()
+                .AddEntityFrameworkStores<GroupFTennisWebAppContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
@@ -73,6 +82,9 @@ namespace GroupFTennisWebApp
             app.UseAuthentication();
             app.UseAuthorization();
 
+
+
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
@@ -80,6 +92,28 @@ namespace GroupFTennisWebApp
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+
+            CreateRoles(serviceProvider).Wait();
+
+        }
+
+        //creates roles in DB
+        public static async Task CreateRoles(IServiceProvider serviceProvider)
+        {
+            var RoleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+            string[] roleNames = { "Member", "Coach", "Admin" };
+
+            // Create new role for each item in the array
+            foreach (var roleName in roleNames)
+            {
+                bool roleExist = await RoleManager.RoleExistsAsync(roleName);
+                if (!roleExist)
+                {
+                   await RoleManager.CreateAsync(new IdentityRole(roleName));
+                }
+
+            }
         }
     }
 }

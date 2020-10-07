@@ -106,6 +106,8 @@ namespace GroupFTennisWebApp.Areas.Identity.Pages.Account
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
+                    //adds new user to specified role defined by radio buttom
+                    _userManager.AddToRoleAsync(user, Input.Role).Wait();
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
