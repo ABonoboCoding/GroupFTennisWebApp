@@ -886,7 +886,6 @@ C:\Users\coola\Desktop\HIT339_ASS2\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Ra
 C:\Users\coola\Desktop\HIT339_ASS2\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_LoginPartial.cshtml.g.cs
 C:\Users\coola\Desktop\HIT339_ASS2\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewImports.cshtml.g.cs
 C:\Users\coola\Desktop\HIT339_ASS2\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewStart.cshtml.g.cs
-C:\Users\coola\Desktop\HIT339_ASS2\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Allmember.cshtml.g.cs
 C:\Users\coola\Desktop\HIT339_ASS2\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Create.cshtml.g.cs
 C:\Users\coola\Desktop\HIT339_ASS2\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Delete.cshtml.g.cs
 C:\Users\coola\Desktop\HIT339_ASS2\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Details.cshtml.g.cs
@@ -932,3 +931,5 @@ C:\Users\coola\Desktop\HIT339_ASS2\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Gr
 C:\Users\coola\Desktop\HIT339_ASS2\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\GroupFTennisWebApp.csproj.CoreCompileInputs.cache
 C:\Users\coola\Desktop\HIT339_ASS2\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\GroupFTennisWebApp.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\coola\Desktop\HIT339_ASS2\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\GroupFTennisWebApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\coola\Desktop\HIT339_ASS2\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Admin\ListMembers.cshtml.g.cs
+C:\Users\coola\Desktop\HIT339_ASS2\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Admin\ListCoaches.cshtml.g.cs

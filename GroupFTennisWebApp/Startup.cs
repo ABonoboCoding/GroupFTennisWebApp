@@ -52,6 +52,7 @@ namespace GroupFTennisWebApp
             services.AddControllersWithViews();
             services.AddRazorPages();
 
+            //services used to create identiies and identity roles
             services.AddIdentity<GroupFTennisWebAppUser, IdentityRole>()
                 .AddDefaultUI()
                 .AddRoles<IdentityRole>()

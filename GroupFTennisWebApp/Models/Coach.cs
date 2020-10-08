@@ -14,6 +14,7 @@ namespace GroupFTennisWebApp.Models
         public string Email { get; set; }
         public string Biography { get; set; }
         [Column("PhotoURL")]
+        //A image url instead of an image upload
         public string PhotoUrl { get; set; }
     }
 }

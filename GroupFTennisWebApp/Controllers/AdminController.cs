@@ -13,11 +13,13 @@ using GroupFTennisWebApp.Models;
 
 namespace AssignmentTwo.Controllers
 {
+    //Must be an admin to access any admin controller methods
     [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private readonly GroupFTennisWebAppContext _context;
         private readonly UserManager<GroupFTennisWebAppUser> _userManager;
+        
 
 
 
@@ -185,6 +187,20 @@ namespace AssignmentTwo.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        //Gets all users who have a role of "member" and lists them
+        [HttpGet]
+        public IActionResult ListMembers()
+        {
+            var members = _userManager.Users.Where(m => m.Role == "member");
+            return View(members);
+        }
 
+        //Gets all users who have a role of "coach" and lists them
+        [HttpGet]
+        public IActionResult ListCoaches()
+        {
+            var coaches = _userManager.Users.Where(m => m.Role == "coach");
+            return View(coaches);
+        }
     }
 }

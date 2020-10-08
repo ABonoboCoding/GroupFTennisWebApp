@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using GroupFTennisWebApp.Models;
+using GroupFTennisWebApp.Data;
 
 namespace GroupFTennisWebApp.Controllers
 {
     public class HomeController : Controller
     {
+        private GroupFTennisWebAppContext _application;
+      
+
+
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)

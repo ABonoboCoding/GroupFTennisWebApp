@@ -29,14 +29,20 @@ namespace GroupFTennisWebApp.Controllers
         }
 
         // GET: Coaches
+        //only an admin and member can view all coaches as per assignment request
+        [Authorize(Roles = "Member, Admin")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Coach.ToListAsync());
         }
 
-        [Authorize(Roles = "Coach")]
+       
+        [Authorize(Roles = "Coach, Member, Admin")]
         public ActionResult MyCoach()
         {
+
+            //var coach = _userManager.GetUserName(User);
+            //var myCoach = _context.Users.Where(m => m.Role == "coach");
 
             var coach = _userManager.GetUserName(User);
             var myCoach = _context.Coach.Where(m => m.Email == coach);
@@ -45,6 +51,7 @@ namespace GroupFTennisWebApp.Controllers
 
         }
 
+        //Only an admin can view all schedules
         [Authorize(Roles = "Admin")]
         public ActionResult AllSchedule()
         {
@@ -54,6 +61,7 @@ namespace GroupFTennisWebApp.Controllers
 
         }
 
+        //Only a coach can view their own schedule
         [Authorize(Roles = "Coach")]
         public ActionResult MySchedule()
         {
@@ -95,6 +103,7 @@ namespace GroupFTennisWebApp.Controllers
         }
 
         // GET: Coaches/Create
+        [Authorize(Roles = "Admin, Coach")]
         public IActionResult Create()
         {
             return View();

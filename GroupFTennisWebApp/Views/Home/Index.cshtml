@@ -2,7 +2,26 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@if (User.IsInRole("Member"))
+{
+    <h1>Welcome fellow member</h1>
+    <p>View all coaches, and enrol into a schedule of your choice.</p>
+    <a class="btn btn-primary" asp-area="" asp-controller="Coaches" asp-action="Index">View all Coaches here</a>
+
+    <p>After you have found the coach you like, enrol into a schedule to meetup with them.</p>
+    <a class="btn btn-primary" asp-area="" asp-controller="Schedules" asp-action="Index">Enrol into a schedule here </a>
+}
+@if (User.IsInRole("Coach"))
+{
+    <h1>Welcome fellow coach</h1>
+    <p>View and edit your profile, to attract potential members to schedule a sessoion with you</p>
+    <a class="btn btn-primary" asp-area="" asp-controller="Coaches" asp-action="MyCoach">View and Edit my profile here</a>
+
+    <p>View your upcoming schedules that members have enrolled with you</p>
+    <a class="btn btn-primary" asp-area="" asp-controller="Coaches" asp-action="MySchedule">My Upcoming Schedules</a>
+}
+@if (User.IsInRole("Admin"))
+{
+    <h1>Welcome Admin</h1>
+
+}

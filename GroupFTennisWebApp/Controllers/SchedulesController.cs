@@ -13,7 +13,6 @@ using GroupFTennisWebApp.Models;
 
 namespace GroupFTennisWebApp.Controllers
 {
-    //[Authorize(Roles = "Member, Coach, Admin")]
     public class SchedulesController : Controller
     {
         private readonly GroupFTennisWebAppContext _context;
@@ -55,9 +54,8 @@ namespace GroupFTennisWebApp.Controllers
         }
 
         // GET: Schedules/Create
-        //[Authorize(Roles = "Admin")]
-
-        [Authorize(Roles = "Member")]
+        //Only a member can view a schedule 
+        [Authorize(Roles = "Member,Admin")]
         public IActionResult Create()
         {
             return View();
@@ -68,7 +66,7 @@ namespace GroupFTennisWebApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-
+        //Only an admin or member can create a schedule 
         [Authorize(Roles = "Admin, Member")]
 
 
@@ -185,6 +183,7 @@ namespace GroupFTennisWebApp.Controllers
             return View(schedule);
         }
 
+        //Allows user to enrol into a schedule
         [HttpPost, ActionName("Enrol")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EnrolConfirmed(int id, [Bind("ScheduleId")] ScheduleMembers member)
