@@ -5,23 +5,23 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>MySchedule</h2>
+<h2>Member Email</h2>
 
 @foreach (var items in Model)
 {
-    <h2>Member Email:</h2><p>@Html.DisplayFor(modelItem => items.MemberEmail)</p>
+  <p>@Html.DisplayFor(modelItem => items.MemberEmail)</p>
 
 }
 <div>
 
     @if (User.IsInRole("Admin"))
     {
-        <a asp-action="AllSchedule">Back to List</a>
+        <a asp-action="AllSchedule">Back to Schedule</a>
     }
 
     @if (User.IsInRole("Coach"))
     {
-        <a asp-action="MySchedule">Back to List</a>
+        <a asp-action="MySchedule">Back to Schedule</a>
     }
 
 </div>

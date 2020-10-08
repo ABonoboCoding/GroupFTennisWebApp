@@ -26,27 +26,43 @@
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
 
-                            
-    <!--Only Allows certain roles to see certain navigation links-->
 
-    @if (User.IsInRole("Member"))
-    {
-        <li><a class="nav-link text-dark" asp-area="" asp-controller="Schedules" asp-action="Index">Schedule</a></li>
-        <li><a class="nav-link text-dark" asp-area="" asp-controller="Coaches" asp-action="Index">All Coaches</a></li>
-    }
-    @if (User.IsInRole("Coach"))
-    {
-        <li><a class="nav-link text-dark" asp-area="" asp-controller="Coaches" asp-action="MyCoach">My Profile</a></li>
-        <li><a class="nav-link text-dark" asp-area="" asp-controller="Coaches" asp-action="MySchedule">Upcoming Schedules</a></li>
-    }
-    @if (User.IsInRole("Admin"))
-    {
-        <li><a class="nav-link text-dark" asp-area="" asp-controller="Schedules" asp-action="Index">Schedule</a></li>
-        <li><a class="nav-link text-dark" asp-area="" asp-controller="Coaches" asp-action="AllSchedule">Enrolled Members Schedule</a></li>
-        <li><a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="ListCoaches">All Coaches</a></li>
-        <li><a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="ListMembers">All Members</a></li>
+                        <!--Only Allows certain roles to see certain navigation links-->
 
-    }
+                        @if (User.IsInRole("Member"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Schedules" asp-action="Index">Schedule</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Coaches" asp-action="Index">All Coaches</a>
+                            </li>
+                        }
+                        @if (User.IsInRole("Coach"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Coaches" asp-action="MyCoach">My Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Coaches" asp-action="MySchedule">Upcoming Schedules</a>
+                            </li>
+                        }
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Schedules" asp-action="Index">Schedule</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Coaches" asp-action="AllSchedule">Enrolled Members Schedule</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="ListCoaches">All Coaches</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="ListMembers">All Members</a>
+                            </li>
+
+                        }
 
                     </ul>
                 </div>

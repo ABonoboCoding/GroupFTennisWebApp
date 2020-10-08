@@ -30,14 +30,14 @@ namespace GroupFTennisWebApp.Controllers
 
         // GET: Coaches
         //only an admin and member can view all coaches as per assignment request
-        [Authorize(Roles = "Member, Admin")]
+        //[Authorize(Roles = "Member, Admin")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Coach.ToListAsync());
         }
 
        
-        [Authorize(Roles = "Coach, Member, Admin")]
+        //[Authorize(Roles = "Coach, Member, Admin")]
         public ActionResult MyCoach()
         {
 
@@ -103,7 +103,7 @@ namespace GroupFTennisWebApp.Controllers
         }
 
         // GET: Coaches/Create
-        [Authorize(Roles = "Admin, Coach")]
+        [Authorize(Roles = "Coach")]
         public IActionResult Create()
         {
             return View();
@@ -112,6 +112,7 @@ namespace GroupFTennisWebApp.Controllers
         // POST: Coaches/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Coach")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Email,Biography,PhotoUrl")] Coach coach)
@@ -122,10 +123,12 @@ namespace GroupFTennisWebApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             return View(coach);
         }
 
         // GET: Coaches/Edit/5
+        [Authorize(Roles = "Coach")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -144,6 +147,7 @@ namespace GroupFTennisWebApp.Controllers
         // POST: Coaches/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Coach")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Email,Biography,PhotoUrl")] Coach coach)

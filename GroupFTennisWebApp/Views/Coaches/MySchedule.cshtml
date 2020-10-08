@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>MySchedule</h2>
+<h2>Schedule</h2>
 
 <p>
 
@@ -45,7 +45,7 @@
                     @Html.DisplayFor(modelItem => item.Location)
                 </td>
                 <td>
-                    <a asp-action="Schedules" asp-route-id="@item.Id">View member's email</a>
+                    <a asp-action="Schedules" class="btn btn-warning" asp-route-id="@item.Id">View member's email</a>
                 </td>
             </tr>
         }
