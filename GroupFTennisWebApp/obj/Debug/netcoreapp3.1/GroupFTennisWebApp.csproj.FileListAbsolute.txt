@@ -1432,3 +1432,4 @@ C:\Users\coola\Desktop\HIT339ASS2_NEW\GroupFTennisWebApp\obj\Debug\netcoreapp3.1
 C:\Users\coola\Desktop\HIT339ASS2_NEW\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\GroupFTennisWebApp.pdb
 C:\Users\coola\Desktop\HIT339ASS2_NEW\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\GroupFTennisWebApp.genruntimeconfig.cache
 C:\Users\coola\Desktop\HIT339ASS2_NEW\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Coaches\CoachProfile.cshtml.g.cs
+C:\Users\az\Desktop\Assignment2\GroupFTennisWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Coaches\CoachProfile.cshtml.g.cs
