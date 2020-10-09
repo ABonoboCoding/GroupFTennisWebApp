@@ -83,6 +83,13 @@ namespace GroupFTennisWebApp.Controllers
             return View("Schedule", member);
         }
 
+        [HttpGet]
+        public IActionResult ListCoaches()
+        {
+            var coaches = _userManager.Users.Where(m => m.Role == "coach");
+            return View(coaches);
+        }
+
 
         // GET: Coaches/Details/5
         public async Task<IActionResult> Details(int? id)

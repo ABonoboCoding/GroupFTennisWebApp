@@ -1,0 +1,12 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using GroupFTennisWebApp.Areas.Identity.Data
+@inject UserManager<GroupFTennisWebAppUser> UserManager
+@{
+    ViewData["Title"] = "EnrollSucessful";
+}
+<h1>Thank you!</h1>
+<h2>You have sucessfully enrolled in a scheduled session.</h2>
+<h2>You can check your enrollment detail on My Enrollment page.</h2>
+
+
+<p>@ViewBag.enrollsucessfulMessage</p>

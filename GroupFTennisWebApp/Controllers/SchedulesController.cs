@@ -205,7 +205,7 @@ namespace GroupFTennisWebApp.Controllers
 
                 await _context.SaveChangesAsync();
 
-                return RedirectToAction(nameof(Index));
+                return View("Views/Home/EnrollSuccessful.cshtml", ViewBag.enrollsucessfulMessage);
 
             }
 

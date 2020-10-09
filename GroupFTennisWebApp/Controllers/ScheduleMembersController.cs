@@ -51,8 +51,17 @@ namespace GroupFTennisWebApp.Controllers
             return View(scheduleMembers);
         }
 
+        [Authorize(Roles = "Member")]
+        public ActionResult Myenrollment()
+        {
+            var user = _userManager.GetUserName(User);
+            var schedules = _context.ScheduleMembers
+                .Where(m => m.MemberEmail == user);
+            return View("Myenrollment", schedules);
+        }
+
         // GET: ScheduleMembers/Create
-        [Authorize(Roles = "Admin")]
+
         public IActionResult Create()
         {
             return View();
@@ -75,7 +84,7 @@ namespace GroupFTennisWebApp.Controllers
         }
 
         // GET: ScheduleMembers/Edit/5
-        [Authorize(Roles = "Admin")]
+
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -127,7 +136,7 @@ namespace GroupFTennisWebApp.Controllers
         }
 
         // GET: ScheduleMembers/Delete/5
-        [Authorize(Roles = "Admin")]
+
 
         public async Task<IActionResult> Delete(int? id)
         {
@@ -154,7 +163,7 @@ namespace GroupFTennisWebApp.Controllers
             var scheduleMembers = await _context.ScheduleMembers.FindAsync(id);
             _context.ScheduleMembers.Remove(scheduleMembers);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Myenrollment));
         }
      
         private bool ScheduleMembersExists(int id)

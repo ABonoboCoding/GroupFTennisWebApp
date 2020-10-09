@@ -1,0 +1,43 @@
+﻿@model IEnumerable<GroupFTennisWebApp.Models.ScheduleMembers>
+
+@{
+    ViewData["Title"] = "My Enrollment";
+}
+
+<h2>My Enrollment</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ScheduleId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MemberEmail)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScheduleId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MemberEmail)
+            </td>
+            <td>
+            @if (User.IsInRole("Member"))
+            {
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id">Delete</a>
+
+
+            }
+            </td>
+
+        </tr>
+    }
+    </tbody>
+</table>
