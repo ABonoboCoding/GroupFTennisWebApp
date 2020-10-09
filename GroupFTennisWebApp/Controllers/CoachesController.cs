@@ -213,5 +213,15 @@ namespace GroupFTennisWebApp.Controllers
         {
             return _context.Coach.Any(e => e.Id == id);
         }
+
+        //Gets all users who have a role of "coach" and lists them
+        [HttpGet]
+        public IActionResult CoachProfile()
+        {
+            var user = _userManager.GetUserName(User);
+
+            var profile = _userManager.Users.Where(m => m.UserName == user);
+            return View(profile);
+        }
     }
 }
