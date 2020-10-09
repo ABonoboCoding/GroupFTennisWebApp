@@ -30,19 +30,16 @@ namespace GroupFTennisWebApp.Controllers
 
         // GET: Coaches
         //only an admin and member can view all coaches as per assignment request
-        //[Authorize(Roles = "Member, Admin")]
+        [Authorize(Roles = "Member, Admin")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Coach.ToListAsync());
         }
 
-       
-        //[Authorize(Roles = "Coach, Member, Admin")]
+
+        [Authorize(Roles = "Admin, Coach, Member")]
         public ActionResult MyCoach()
         {
-
-            //var coach = _userManager.GetUserName(User);
-            //var myCoach = _context.Users.Where(m => m.Role == "coach");
 
             var coach = _userManager.GetUserName(User);
             var myCoach = _context.Coach.Where(m => m.Email == coach);
@@ -65,9 +62,11 @@ namespace GroupFTennisWebApp.Controllers
         [Authorize(Roles = "Coach")]
         public ActionResult MySchedule()
         {
+            // GET current User
             var coach = _userManager.GetUserName(User);
-            var coaches = _context.Schedule.Where(m => m.CoachEmail == coach);
-            return View("MySchedule", coaches);
+            // Query db to match all records with same CoachEmail
+            var schedules = _context.Schedule.Where(m => m.CoachEmail == coach);
+            return View("MySchedule", schedules);
 
         }
 
@@ -78,7 +77,8 @@ namespace GroupFTennisWebApp.Controllers
                 return NotFound();
             }
 
-            var member = _context.ScheduleMembers.Where(m => m.ScheduleId == id);
+            var member = _context.ScheduleMembers
+                .Where(m => m.ScheduleId == id);
 
             return View("Schedule", member);
         }

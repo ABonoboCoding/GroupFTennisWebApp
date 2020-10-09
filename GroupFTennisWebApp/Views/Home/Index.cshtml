@@ -1,10 +1,13 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@using GroupFTennisWebApp.Areas.Identity.Data
+@inject UserManager<GroupFTennisWebAppUser> UserManager
+@{
     ViewData["Title"] = "Home Page";
 }
 
 @if (User.IsInRole("Member"))
 {
-    <h1>Welcome fellow member</h1>
+    <h2>Hello member @UserManager.GetUserName(User)</h2>
     <p>View all coaches, and enrol into a schedule of your choice.</p>
     <a class="btn btn-primary" asp-area="" asp-controller="Coaches" asp-action="Index">View all Coaches here</a>
 
@@ -13,7 +16,7 @@
 }
 @if (User.IsInRole("Coach"))
 {
-    <h1>Welcome fellow coach</h1>
+    <h2>Hello coach @UserManager.GetUserName(User)</h2>
     <p>View and edit your profile, to attract potential members to schedule a sessoion with you</p>
     <a class="btn btn-primary" asp-area="" asp-controller="Coaches" asp-action="MyCoach">View and Edit my profile here</a>
 
@@ -22,8 +25,8 @@
 }
 @if (User.IsInRole("Admin"))
 {
-<div class="text-center">
-    <h1 class="display-4">Welcome Admin</h1>
-</div>
+    <div class="text-center">
+        <h1 class="display-4">Welcome Admin  @UserManager.GetUserName(User)</h1>
+    </div>
 
 }
