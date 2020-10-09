@@ -17,8 +17,8 @@
 @if (User.IsInRole("Coach"))
 {
     <h2>Hello coach @UserManager.GetUserName(User)</h2>
-    <p>View and edit your profile, to attract potential members to schedule a sessoion with you</p>
-    <a class="btn btn-primary" asp-area="" asp-controller="Coaches" asp-action="MyCoach">View and Edit my profile here</a>
+    <p>View your profile, to attract potential members to schedule a sessoion with you</p>
+    <a class="btn btn-primary" asp-area="" asp-controller="Coaches" asp-action="CoachProfile">View my profile here</a>
 
     <p>View your upcoming schedules that members have enrolled with you</p>
     <a class="btn btn-primary" asp-area="" asp-controller="Coaches" asp-action="MySchedule">My Upcoming Schedules</a>
